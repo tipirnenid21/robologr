@@ -1,0 +1,537 @@
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7v5c0 5.25 4.25 10.15 10 11.35C17.75 22.15 22 17.25 22 12V7L12 2z"/></svg>
+    </div>
+    ROBOLOGR
+  </a>
+  <ul class="nav-links">
+    <li><a href="#product">Modules</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#failures">Failure Intel</a></li>
+    <li><a href="#opensource">Roadmap</a></li>
+    <li><a href="https://github.com/tipirnenid21/robologr" target="_blank" class="nav-cta">GitHub ↗</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
+
+  <div class="hero-tag">Robotics Observability Platform</div>
+
+  <div class="hero-status">
+    <div class="status-dot"></div>
+    Open-source · Early Access · MatchArm-compatible
+  </div>
+
+  <h1 class="glitch" data-text="Debug robots like software.">
+    Debug robots<br/>
+    like <span class="accent-word">software.</span>
+  </h1>
+
+  <p class="hero-desc">
+    ROBOLOGR is a flight recorder + dataset quality toolkit for robotic systems. 
+    Align multi-camera video, actions, joint states, and hardware health on a single timeline. 
+    Know what happened, why it failed, and whether the data is worth training on.
+  </p>
+
+  <div class="hero-actions">
+    <a href="https://github.com/tipirnenid21/robologr" target="_blank" class="btn-primary">View on GitHub</a>
+    <a href="#product" class="btn-ghost">See Modules ↓</a>
+  </div>
+
+  <!-- EPISODE WINDOW -->
+  <div class="episode-window">
+    <div class="episode-titlebar">
+      <div class="titlebar-dots">
+        <div class="dot dot-red"></div>
+        <div class="dot dot-yellow"></div>
+        <div class="dot dot-green"></div>
+      </div>
+      <span class="titlebar-name">robologr viewer — matcharm_0217.episode</span>
+    </div>
+    <div class="episode-content">
+      <div class="ep-header">
+        <div>
+          <div class="ep-name">matcharm_0217</div>
+          <div class="ep-sub">47.2s · 3 cameras · 6 joints</div>
+        </div>
+        <div class="quality-badge">QS 86 / 100</div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-label">cam_front</div>
+        <div class="timeline-track">
+          <div class="timeline-fill track-cam"></div>
+          <div class="scrubhead"></div>
+        </div>
+
+        <div class="timeline-label">joint states</div>
+        <div class="timeline-track">
+          <div class="timeline-fill track-joints"></div>
+        </div>
+
+        <div class="timeline-label">torque / current</div>
+        <div class="timeline-track">
+          <div class="timeline-fill track-torque"></div>
+        </div>
+
+        <div class="timeline-label">events</div>
+        <div class="timeline-track" style="background:transparent;">
+          <div class="timeline-fill" style="background:transparent; width:100%; position:relative;">
+            <div class="event-marker ev1"></div>
+            <div class="event-marker ev2"></div>
+            <div class="event-marker ev3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-val green">86<span style="font-size:12px;opacity:0.5">/100</span></div>
+          <div class="metric-label">Quality Score</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val orange">3</div>
+          <div class="metric-label">Anomalies</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val blue">2.3ms</div>
+          <div class="metric-label">Avg Latency</div>
+        </div>
+      </div>
+
+      <div class="failure-alert">
+        <div class="alert-icon">⚠</div>
+        <div class="alert-text">
+          <strong>t=19.4s</strong> — Joint 3 torque spike detected. 
+          Command vs actual lag: <strong>+38ms</strong>. Possible motor saturation or collision precursor.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat-item">
+    <div class="stat-num"><span>6</span> signals</div>
+    <div class="stat-desc">synchronized on one timeline</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num"><span>∞</span> episodes</div>
+    <div class="stat-desc">local-first, no cloud lock-in</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num"><span>100</span>pt QS</div>
+    <div class="stat-desc">per-frame quality scoring</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num"><span>0</span> rewrites</div>
+    <div class="stat-desc">export-ready training manifests</div>
+  </div>
+</div>
+
+<!-- MODULES -->
+<section id="product">
+  <div class="section-label">Modules</div>
+  <h2>Everything your robot<br/>data pipeline needs.</h2>
+  <p class="section-sub">Six focused modules that go from raw sensor dump to training-ready, failure-annotated dataset.</p>
+
+  <div class="modules-grid reveal">
+    <div class="module-card">
+      <div class="module-glow glow-blue"></div>
+      <div class="module-icon icon-blue">🎥</div>
+      <div class="module-title">Robot Observability</div>
+      <div class="module-desc">Episode bundles: multi-cam video, actions, state, events, and derived signals all aligned on a single interactive timeline. Scrub, zoom, and inspect any moment.</div>
+      <div class="module-tag">episode · timeline · scrubber</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-glow glow-green"></div>
+      <div class="module-icon icon-green">📊</div>
+      <div class="module-title">Dataset Quality Scoring</div>
+      <div class="module-desc">Blur, exposure, occlusion, dropped frames, timestamp drift, background clutter — scored per-frame and per-episode using VLMs. Know before you train.</div>
+      <div class="module-tag">VLM · per-frame · QS 0–100</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-glow glow-orange"></div>
+      <div class="module-icon icon-orange">🏷️</div>
+      <div class="module-title">Intent + Failure Labels</div>
+      <div class="module-desc">Define what "good" and "bad" looks like for your task. Tag intent and failure taxonomy with evidence — actual frames and signal clips, not just metadata.</div>
+      <div class="module-tag">labeling · taxonomy · evidence</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-glow glow-yellow"></div>
+      <div class="module-icon icon-yellow">💀</div>
+      <div class="module-title">Failure-First Training</div>
+      <div class="module-desc">Build training splits with guaranteed failure coverage. Generate precursor reports so your model learns from mistakes — and never repeats them.</div>
+      <div class="module-tag">splits · precursors · coverage</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-glow glow-purple"></div>
+      <div class="module-icon icon-purple">🔧</div>
+      <div class="module-title">Hardware Anomaly Detection</div>
+      <div class="module-desc">Current drift, overheating, comm drops, command-vs-actual lag. Separate hardware failures from policy failures so you fix the right thing.</div>
+      <div class="module-tag">anomaly · motors · health</div>
+    </div>
+
+    <div class="module-card">
+      <div class="module-glow glow-teal"></div>
+      <div class="module-icon icon-teal">📦</div>
+      <div class="module-title">Training Exports</div>
+      <div class="module-desc">Export manifests for any training pipeline — no full dataset rewrites. Shareable run reports with embedded clips, signal charts, and quality breakdowns.</div>
+      <div class="module-tag">manifests · reports · adapters</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-label">How it works</div>
+  <div class="steps-layout">
+    <div class="steps-list reveal">
+      <h2>Local-first.<br/>No cloud required.</h2>
+      <p class="section-sub" style="margin-bottom:40px;">Runs next to your data. Indexes large datasets, streams only previews and metadata to the UI. Your data never leaves your machine.</p>
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Init your data directory</h3>
+          <p>Point ROBOLOGR at any folder of episodes — ROS2 bags, custom formats, or raw video + CSV. It creates a local index.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Run quality + anomaly checks</h3>
+          <p>Process runs per-episode, scoring visual quality, detecting signal anomalies, and flagging timestamp drift.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Inspect in the viewer</h3>
+          <p>Open the browser UI, scrub timelines, review failure clips, edit labels, and annotate intent tags.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Export training manifests</h3>
+          <p>Generate split files with failure guarantees, quality thresholds, and precursor reports. Plug into your pipeline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-block reveal">
+      <div class="code-titlebar">
+        <span>terminal</span>
+        <span style="color: var(--accent3);">● live</span>
+      </div>
+      <div class="code-body">
+        <div class="code-line">
+          <span class="code-prompt">$</span>
+          <span class="code-cmd">robologr init /data/matcharm</span>
+        </div>
+        <div class="code-line">
+          <span class="code-prompt" style="opacity:0"> </span>
+          <span class="code-comment">→ indexed 148 episodes</span>
+        </div>
+        <div class="code-blank"></div>
+        <div class="code-line">
+          <span class="code-prompt">$</span>
+          <span class="code-cmd">robologr process --quality --anomaly</span>
+        </div>
+        <div class="code-line">
+          <span class="code-prompt" style="opacity:0"> </span>
+          <span class="code-comment" style="color:var(--accent3);">→ QS: avg 81 · 12 flagged</span>
+        </div>
+        <div class="code-line">
+          <span class="code-prompt" style="opacity:0"> </span>
+          <span class="code-comment" style="color:var(--accent2);">→ anomalies: 7 torque, 2 comm</span>
+        </div>
+        <div class="code-blank"></div>
+        <div class="code-line">
+          <span class="code-prompt">$</span>
+          <span class="code-cmd">robologr serve</span>
+        </div>
+        <div class="code-line">
+          <span class="code-prompt" style="opacity:0"> </span>
+          <span class="code-comment">→ UI ready: http://localhost:7771</span>
+        </div>
+        <div class="code-blank"></div>
+        <div class="code-line">
+          <span class="code-prompt">$</span>
+          <span class="code-cmd">robologr export --split train --failure-min 0.3</span>
+        </div>
+        <div class="code-line">
+          <span class="code-prompt" style="opacity:0"> </span>
+          <span class="code-comment" style="color:var(--accent);">→ manifest.json written · 94 episodes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAILURE INTEL -->
+<section class="failure-section" id="failures">
+  <div class="section-label">Failure Intel</div>
+  <h2>Train on what went<br/><span style="color:var(--accent2)">wrong.</span></h2>
+  <p class="section-sub">Most datasets hide failures. ROBOLOGR surfaces them, labels them, and makes sure your model learns from every mistake before it deploys.</p>
+
+  <div class="failure-grid reveal">
+    <div class="failure-card">
+      <div class="failure-header">
+        <div class="failure-title">Joint 3 — Torque Anomaly</div>
+        <div class="failure-badge badge-fail">FAILURE</div>
+      </div>
+      <div class="failure-body">
+        <div class="signal-chart">
+          <svg viewBox="0 0 400 64" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgba(255,77,0,0.4)"/>
+                <stop offset="100%" style="stop-color:rgba(255,77,0,0)"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,48 L40,46 L80,44 L120,42 L150,40 L180,38 L200,36 L215,20 L225,8 L235,4 L245,2 L255,5 L265,14 L280,28 L300,36 L340,42 L400,44" fill="none" stroke="rgba(255,77,0,0.6)" stroke-width="2"/>
+            <path d="M0,48 L40,46 L80,44 L120,42 L150,40 L180,38 L200,36 L215,20 L225,8 L235,4 L245,2 L255,5 L265,14 L280,28 L300,36 L340,42 L400,44 L400,64 L0,64Z" fill="url(#g1)"/>
+            <line x1="225" y1="0" x2="225" y2="64" stroke="rgba(255,77,0,0.4)" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="225" cy="8" r="3" fill="var(--accent2)"/>
+          </svg>
+        </div>
+        <div class="failure-log">
+          <div class="log-line"><span class="log-ts">t=18.90</span><span class="log-msg">torque nominal: 0.42 Nm</span></div>
+          <div class="log-line"><span class="log-ts">t=19.22</span><span class="log-msg log-warn">⚠ torque rising: 1.1 Nm</span></div>
+          <div class="log-line"><span class="log-ts">t=19.44</span><span class="log-msg log-err">✖ spike detected: 3.8 Nm (threshold: 2.0)</span></div>
+          <div class="log-line"><span class="log-ts">t=19.52</span><span class="log-msg log-err">✖ cmd–actual lag: +38ms</span></div>
+          <div class="log-line"><span class="log-ts">t=19.80</span><span class="log-msg log-warn">⚠ recovery: 1.2 Nm</span></div>
+          <div class="log-line"><span class="log-ts">t=20.10</span><span class="log-msg">nominal restored</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="failure-card">
+      <div class="failure-header">
+        <div class="failure-title">cam_wrist — Visual Quality</div>
+        <div class="failure-badge badge-ok">TRAINABLE</div>
+      </div>
+      <div class="failure-body">
+        <div class="signal-chart">
+          <svg viewBox="0 0 400 64" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgba(0,255,136,0.3)"/>
+                <stop offset="100%" style="stop-color:rgba(0,255,136,0)"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,20 L60,22 L120,18 L180,20 L240,22 L300,19 L360,21 L400,20" fill="none" stroke="rgba(0,255,136,0.6)" stroke-width="2"/>
+            <path d="M0,20 L60,22 L120,18 L180,20 L240,22 L300,19 L360,21 L400,20 L400,64 L0,64Z" fill="url(#g2)"/>
+          </svg>
+        </div>
+        <div class="failure-log">
+          <div class="log-line"><span class="log-ts">blur</span><span class="log-msg log-ok">0.3% frames flagged (threshold: 5%)</span></div>
+          <div class="log-line"><span class="log-ts">exposure</span><span class="log-msg log-ok">nominal — Δ EV &lt; 0.4</span></div>
+          <div class="log-line"><span class="log-ts">occlusion</span><span class="log-msg log-ok">0 frames &gt; 30% blocked</span></div>
+          <div class="log-line"><span class="log-ts">timestamps</span><span class="log-msg log-ok">drift: 0.8ms max — PASS</span></div>
+          <div class="log-line"><span class="log-ts">clutter</span><span class="log-msg log-warn">⚠ background complexity: high</span></div>
+          <div class="log-line"><span class="log-ts">verdict</span><span class="log-msg log-ok">✓ TRAINING-WORTHY · QS 91</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section class="oss-section" id="opensource">
+  <div class="section-label">Open-Source First</div>
+  <h2>Built in the open.<br/>From day one.</h2>
+  <p class="section-sub">Start with a stable episode format and viewer, then grow with adapters, QA, labeling, and anomaly modules. Community-driven, MatchArm-friendly.</p>
+
+  <div class="roadmap reveal">
+    <div class="roadmap-item">
+      <div class="roadmap-status status-done">✓</div>
+      <div>
+        <div class="roadmap-text">Episode format + viewer</div>
+        <div class="roadmap-sub">Stable schema · multi-stream scrubber · timeline UI</div>
+      </div>
+      <div class="roadmap-tag">shipped</div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-status status-wip">▶</div>
+      <div>
+        <div class="roadmap-text">Dataset quality scoring</div>
+        <div class="roadmap-sub">VLM-powered · per-frame + per-episode QS</div>
+      </div>
+      <div class="roadmap-tag">in progress</div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-status status-wip">▶</div>
+      <div>
+        <div class="roadmap-text">Hardware anomaly detection</div>
+        <div class="roadmap-sub">Motor health · comm drops · lag analysis</div>
+      </div>
+      <div class="roadmap-tag">in progress</div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-status status-planned">○</div>
+      <div>
+        <div class="roadmap-text">ROS2 + custom recorder adapters</div>
+        <div class="roadmap-sub">Ingest from any robotics stack</div>
+      </div>
+      <div class="roadmap-tag">planned</div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-status status-planned">○</div>
+      <div>
+        <div class="roadmap-text">Failure labeling + intent taxonomy</div>
+        <div class="roadmap-sub">Evidence-linked labels · failure-first splits</div>
+      </div>
+      <div class="roadmap-tag">planned</div>
+    </div>
+    <div class="roadmap-item">
+      <div class="roadmap-status status-planned">○</div>
+      <div>
+        <div class="roadmap-text">Training manifest exports</div>
+        <div class="roadmap-sub">Pipeline-ready · no full dataset rewrites</div>
+      </div>
+      <div class="roadmap-tag">planned</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-glow"></div>
+  <div class="section-label" style="justify-content:center; margin-bottom:20px;">Get Updates</div>
+  <h2>Built in SF.<br/><span style="color:var(--accent)">Built for builders.</span></h2>
+  <p class="contact-desc">Early templates, release notes, and MatchArm-specific tooling drops. No spam — just the signal.</p>
+
+  <div class="email-form">
+    <input type="email" placeholder="your@email.com" />
+    <button type="button">Notify me</button>
+  </div>
+
+  <div style="margin-top:32px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+    <a href="https://github.com/tipirnenid21/robologr" target="_blank" class="btn-ghost">⭐ Star on GitHub</a>
+    <a href="https://robologr.vercel.app" target="_blank" class="btn-ghost">🔗 Live Demo</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ROBOLOGR</div>
+  <div class="footer-links">
+    <a href="https://github.com/tipirnenid21/robologr" target="_blank">GitHub</a>
+    <a href="#product">Modules</a>
+    <a href="#how">Docs</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 ROBOLOGR · SF, CA</div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+
+  function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+
+  document.querySelectorAll('a, button, .module-card, .step').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '56px';
+      ring.style.height = '56px';
+      ring.style.borderColor = 'rgba(0,212,255,0.7)';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(0,212,255,0.4)';
+    });
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Stagger module cards
+  document.querySelectorAll('.module-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    card.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s, background 0.3s`;
+
+    const cardObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        }
+      });
+    }, { threshold: 0.1 });
+    cardObserver.observe(card);
+  });
+
+  // Typing effect on code lines
+  const codeLines = document.querySelectorAll('.code-cmd');
+  let lineI = 0;
+  function typeLine(el) {
+    const text = el.textContent;
+    el.textContent = '';
+    el.style.opacity = '1';
+    let i = 0;
+    const t = setInterval(() => {
+      el.textContent += text[i];
+      i++;
+      if (i >= text.length) {
+        clearInterval(t);
+        lineI++;
+        if (lineI < codeLines.length) {
+          setTimeout(() => typeLine(codeLines[lineI]), 300);
+        }
+      }
+    }, 28);
+  }
+
+  const codeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && lineI === 0) {
+        codeLines.forEach(l => { l.style.opacity = '0'; });
+        setTimeout(() => typeLine(codeLines[0]), 400);
+        codeObs.disconnect();
+      }
+    });
+  });
+  if (document.querySelector('.code-block')) codeObs.observe(document.querySelector('.code-block'));
+</script>
