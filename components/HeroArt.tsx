@@ -2,133 +2,76 @@ export default function HeroArt() {
   return (
     <div className="relative h-[420px] w-full overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur">
       {/* glow */}
-      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-cyan-400/15 blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-white/8 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-cyan-400/18 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-white/8 blur-3xl" />
 
-      {/* svg art */}
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 900 520"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* subtle grid */}
-        <g opacity="0.25">
-          {Array.from({ length: 19 }).map((_, i) => (
-            <path
-              key={`v-${i}`}
-              d={`M${40 + i * 45} 20 V500`}
-              stroke="white"
-              strokeOpacity="0.08"
-            />
-          ))}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <path
-              key={`h-${i}`}
-              d={`M20 ${40 + i * 40} H880`}
-              stroke="white"
-              strokeOpacity="0.08"
-            />
-          ))}
-        </g>
+      {/* scanline */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.25]">
+        <div className="absolute left-0 top-0 h-1 w-full bg-cyan-300/30 blur-sm animate-[scan_6s_linear_infinite]" />
+      </div>
 
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 900 520" fill="none">
         {/* telemetry traces */}
         <path
-          d="M70 380 C140 320, 220 440, 300 390 S460 340, 540 380 S660 420, 820 320"
-          stroke="rgba(6,182,212,0.55)"
-          strokeWidth="2.5"
+          d="M70 365 C160 310, 235 445, 320 385 S470 320, 560 375 S710 430, 830 315"
+          stroke="rgba(6,182,212,0.65)"
+          strokeWidth="2.6"
         />
         <path
-          d="M70 410 C160 470, 260 340, 360 420 S520 470, 640 400 S760 330, 830 380"
-          stroke="rgba(255,255,255,0.20)"
+          d="M70 410 C170 470, 260 335, 360 420 S520 470, 640 400 S760 330, 830 380"
+          stroke="rgba(255,255,255,0.22)"
           strokeWidth="1.8"
         />
 
-        {/* glowing sensor nodes */}
+        {/* sensor nodes */}
         {[
-          [300, 390],
-          [540, 380],
-          [820, 320],
+          [320, 385],
+          [560, 375],
+          [830, 315],
           [360, 420],
           [640, 400],
         ].map(([x, y], idx) => (
           <g key={idx}>
-            <circle cx={x} cy={y} r="10" fill="rgba(6,182,212,0.12)" />
-            <circle cx={x} cy={y} r="4.5" fill="rgba(6,182,212,0.95)" />
+            <circle cx={x} cy={y} r="11" fill="rgba(6,182,212,0.14)" />
+            <circle cx={x} cy={y} r="4.6" fill="rgba(6,182,212,0.95)" />
           </g>
         ))}
 
-        {/* abstract robot arm (stylized) */}
-        <g transform="translate(120 90)">
-          <path
-            d="M110 260 L210 210 L310 250"
-            stroke="rgba(255,255,255,0.55)"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          <path
-            d="M210 210 L245 120 L340 85"
-            stroke="rgba(255,255,255,0.55)"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          <path
-            d="M340 85 L420 125"
-            stroke="rgba(255,255,255,0.55)"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
+        {/* abstract robot arm */}
+        <g transform="translate(125 95)">
+          <path d="M110 260 L210 210 L315 250" stroke="rgba(255,255,255,0.58)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M210 210 L250 120 L345 85" stroke="rgba(255,255,255,0.58)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M345 85 L430 125" stroke="rgba(255,255,255,0.58)" strokeWidth="6" strokeLinecap="round" />
 
-          {/* joints */}
           {[
             [110, 260],
             [210, 210],
-            [245, 120],
-            [340, 85],
-            [420, 125],
+            [250, 120],
+            [345, 85],
+            [430, 125],
           ].map(([x, y], idx) => (
             <g key={idx}>
               <circle cx={x} cy={y} r="18" fill="rgba(255,255,255,0.06)" />
               <circle cx={x} cy={y} r="8" fill="rgba(255,255,255,0.45)" />
-              <circle cx={x} cy={y} r="4" fill="rgba(6,182,212,0.9)" />
+              <circle cx={x} cy={y} r="4" fill="rgba(6,182,212,0.92)" />
             </g>
           ))}
 
-          {/* gripper-ish end effector */}
-          <path
-            d="M420 125 L460 110"
-            stroke="rgba(6,182,212,0.85)"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          <path
-            d="M420 125 L458 142"
-            stroke="rgba(6,182,212,0.85)"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
+          {/* end effector */}
+          <path d="M430 125 L470 110" stroke="rgba(6,182,212,0.9)" strokeWidth="6" strokeLinecap="round" />
+          <path d="M430 125 L468 142" stroke="rgba(6,182,212,0.9)" strokeWidth="6" strokeLinecap="round" />
         </g>
 
-        {/* UI-ish overlay box */}
+        {/* UI overlay card */}
         <g opacity="0.95">
-          <rect
-            x="560"
-            y="80"
-            width="280"
-            height="170"
-            rx="18"
-            fill="rgba(0,0,0,0.35)"
-            stroke="rgba(255,255,255,0.10)"
-          />
-          <text x="585" y="115" fill="rgba(255,255,255,0.85)" fontSize="14">
-            Episode: matcharm_0217
-          </text>
-          <text x="585" y="140" fill="rgba(255,255,255,0.55)" fontSize="12">
-            quality 86 • anomaly risk low
-          </text>
-          <rect x="585" y="160" width="230" height="12" rx="6" fill="rgba(255,255,255,0.08)" />
-          <rect x="585" y="185" width="230" height="12" rx="6" fill="rgba(255,255,255,0.08)" />
-          <rect x="585" y="210" width="170" height="12" rx="6" fill="rgba(6,182,212,0.25)" />
+          <rect x="560" y="80" width="290" height="180" rx="18" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.10)" />
+          <text x="585" y="116" fill="rgba(255,255,255,0.85)" fontSize="14">Episode: matcharm_0217</text>
+          <text x="585" y="142" fill="rgba(255,255,255,0.55)" fontSize="12">quality 86 • anomaly risk low</text>
+
+          <text x="585" y="172" fill="rgba(255,255,255,0.45)" fontSize="11">markers</text>
+          <rect x="585" y="182" width="240" height="12" rx="6" fill="rgba(255,255,255,0.08)" />
+          <rect x="585" y="205" width="240" height="12" rx="6" fill="rgba(255,255,255,0.08)" />
+          <rect x="585" y="228" width="160" height="12" rx="6" fill="rgba(6,182,212,0.28)" />
         </g>
       </svg>
     </div>

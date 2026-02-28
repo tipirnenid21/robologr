@@ -66,10 +66,9 @@ export default function Page() {
       {/* Hero */}
       <section className="relative mx-auto max-w-6xl px-6 pb-14 pt-10">
         <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-center">
-  <div>
-    {/* keep your badges + h1 + paragraph + buttons here */}
+    <div>
+    {/* badges + H1 + paragraph + buttons */}
   </div>
-
   <HeroArt />
 </div>
 
