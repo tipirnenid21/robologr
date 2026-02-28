@@ -1,5 +1,6 @@
 /* TEST: ROBOLOGR NEW UI */
 import Logo from "../components/Logo";
+import HeroArt from "../components/HeroArt";
 import ContactForm from "../components/ContactForm";
 
 const Badge = ({ children }: { children: React.ReactNode }) => (
@@ -64,16 +65,16 @@ export default function Page() {
 
       {/* Hero */}
       <section className="relative mx-auto max-w-6xl px-6 pb-14 pt-10">
-        <div className="flex flex-wrap gap-2">
-          <Badge>Open-source first</Badge>
-          <Badge>Episode timelines</Badge>
-          <Badge>Dataset QA</Badge>
-          <Badge>Failure-first</Badge>
-          <Badge>Anomaly detection</Badge>
-        </div>
+        <div className="mt-10 grid gap-10 md:grid-cols-2 md:items-center">
+  <div>
+    {/* keep your badges + h1 + paragraph + buttons here */}
+  </div>
+
+  <HeroArt />
+</div>
 
         <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
-          TEST robots like software.
+          Debug robots like software.
           <span className="block text-white/70">
             See what happened, why it failed, and whether the data is training-worthy.
           </span>
